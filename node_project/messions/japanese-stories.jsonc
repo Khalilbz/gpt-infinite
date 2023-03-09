@@ -1,0 +1,62 @@
+{
+  "fileName": "japanese-stories",
+  "ignoreFirstMessage": true,
+  "firstMessage": "I want to write 10 short japanese easy stories for learing",
+  "templateName": "multiSectionIndexedContent",
+  "questionSchema": "Please write the content of the story \nTITLE: [{title}]\nSECTION: [{section}]",
+  "endSectionSeparator": "\n-------------------------------------------------------------------------\n",
+  "addTionalTextRules": [
+    // "Write a short conversation story on the topic provided in Japanese",
+    // "The conversation should have names and without translation",
+    // "Include new vocabulary and grammar points in the story in english",
+    // "Include a quiz exercise to test understanding and correction (Mixed EN/JP)",
+    // "Include an exercise to inspire the reader to write their own short story based on the same topic in english",
+  ],
+  "contentSections":[// Minimum of 2 sections is required
+    {
+      "name": "Story",
+      "addTionalTextRules": [
+        "Write a short story [WITH A CONVERSATION] for the title provided, in Japanese",
+        "Provide TRANSLATION as a second part",
+        // "The conversation should have names and without translation",
+        "The conversation should be VERY EASY for a beginner",
+      ],
+    },
+    {
+      "name": "Vocabulary",
+      "addTionalTextRules": [
+        "Include all the vocabulary in the JAPANESE story (in english)",
+        "If a specific vocabulary is hard for a beginner, make an examples",
+        "Provide good details for the vocabulary, such as: pronunciation, meaning, usage, etc.",
+      ],
+    },
+    {
+      "name": "Grammar",
+      "addTionalTextRules": [
+        "Include all the grammar points in the story (in english)",
+        "PROVIDE A SENTENCE EXAMPLE FOR EACH GRAMMAR POINT",
+        "If a specific grammar is hard for a beginner, make multiple examples",
+      ],
+    },
+    {
+      "name": "Quiz Exercise",
+      "addTionalTextRules": [
+        "Make TWO PARTS, one in english and one in japanese",
+        "The japanese question should be hell EASY for a beginner",
+        "At the end of the exercise, provide the CORRECT ANSWERS, in a compact way of BOTH PARTS japanese and english parts",
+      ],
+    },
+  ],
+  "sectionsTitles": [
+    "A day at a Japanese amusement park",
+    "Meeting a Japanese friend for the first time",
+    "Trying Japanese street food for the first time",
+    "Going shopping in a Japanese department store",
+    "A day trip to a Japanese beach",
+    "Going to a Japanese karaoke bar",
+    "Visiting a Japanese garden",
+    "Taking a Japanese language class",
+    "Participating in a Japanese cultural event or festival",
+    "Visiting a Japanese tourist attraction, such as Mount Fuji or the Tokyo Skytree",
+  ]
+}

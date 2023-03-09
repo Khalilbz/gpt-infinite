@@ -1,0 +1,26 @@
+{
+  "fileName": "japanese-stories",
+  "ignoreFirstMessage": true,
+  "firstMessage": "I want to write 10 short japanese easy stories for learing",
+  "templateName": "indexedContent",
+  "questionSchema": "Please write the content of the next story : {title}",
+  "addTionalTextRules": [
+    "Write a short conversation story on the topic provided in Japanese",
+    "The conversation should have names and without translation",
+    "Include new vocabulary and grammar points in the story in english",
+    "Include a quiz exercise to test understanding and correction (Mixed EN/JP)",
+    "Include an exercise to inspire the reader to write their own short story based on the same topic in english",
+  ],
+  "sectionsTitles": [
+    "A day at a Japanese amusement park",
+    "Meeting a Japanese friend for the first time",
+    "Trying Japanese street food for the first time",
+    "Going shopping in a Japanese department store",
+    "A day trip to a Japanese beach",
+    "Going to a Japanese karaoke bar",
+    "Visiting a Japanese garden",
+    "Taking a Japanese language class",
+    "Participating in a Japanese cultural event or festival",
+    "Visiting a Japanese tourist attraction, such as Mount Fuji or the Tokyo Skytree",
+  ]
+}

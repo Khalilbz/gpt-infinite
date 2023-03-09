@@ -1,0 +1,23 @@
+{
+  "fileName": "code-test",
+  "ignoreFirstMessage": false,
+  "firstMessage": "I want to write a very SHORT vuejs documentation [SUGGEST TWO CHAPTERS ONLY STUPID]",
+  "templateName": "indexedContent",
+  "questionSchema": "Please write the content of the chapter : {title}",
+  "addTionalTextRules": [
+    "Add some codes",
+    "Start your code with \n# <CHAPTER>",
+  ],
+  "sectionsTitles": [
+    // "A day at a Japanese amusement park",
+    // "Meeting a Japanese friend for the first time",
+    // "Trying Japanese street food for the first time",
+    // "Going shopping in a Japanese department store",
+    // "A day trip to a Japanese beach",
+    // "Going to a Japanese karaoke bar",
+    // "Visiting a Japanese garden",
+    // "Taking a Japanese language class",
+    // "Participating in a Japanese cultural event or festival",
+    // "Visiting a Japanese tourist attraction, such as Mount Fuji or the Tokyo Skytree",
+  ]
+}
