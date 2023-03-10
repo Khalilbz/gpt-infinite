@@ -1,0 +1,5 @@
+- Fix multiSectionIndexedContent full auto work
+- Create a mession generator cli tool
+- Generated mession, should have meaningful placeholders and comments [JSONC]
+- When running "npm start" Provide messions with numbers, [0] for working without a mession
+- Save mession files inside a folder created specifically for each mession

@@ -45,7 +45,6 @@ Please feel free to contribute to this project. You can fork the repository, mak
 
 ## Upcoming Features
 
-- **Visual Dashboard**
 - **Automation templates for development (Auto files Scan/Save)**
 - WebCrawler
 - Automated testing and validation of chat responses (Error handling)
