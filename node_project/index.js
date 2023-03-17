@@ -91,11 +91,11 @@ async function getUserInput() {
   
   if (args.length > 0) {
     const name = args[0];
-    const filePath = path.join(__dirname, 'messions', `${name}.jsonc`);
+    const filePath = path.join(__dirname, 'missions', `${name}.jsonc`);
 
     // if file does not exist, exit
     if (!fs.existsSync(filePath)) {
-      console.log(`Mession ${name} does not exist`);
+      console.log(`Mission ${name} does not exist`);
       process.exit(1);
     }
 
