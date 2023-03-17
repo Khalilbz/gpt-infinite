@@ -1,7 +1,10 @@
 ## GPT Infinite
 
 This is a Node.js based automation tool that helps to automate tasks in chat GPT. It follows a mission-based methodology, For now we only use the free version available on the web.
-> ChatGPT API implementation will come later
+> ChatGPT API implementation will come soon
+
+> Creating a 39 pages Japanese book using GPT Infinite
+> ![alt text](./video.gif)
 
 ## Available Missions
 
