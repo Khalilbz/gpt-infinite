@@ -8,7 +8,7 @@
     "Add some codes",
     "Start your code with \n# <CHAPTER>",
   ],
-  "sectionsTitles": [
+  "sectionsTitles": [// set the questions manually or leave it empty so the script will generate it
     // "A day at a Japanese amusement park",
     // "Meeting a Japanese friend for the first time",
     // "Trying Japanese street food for the first time",

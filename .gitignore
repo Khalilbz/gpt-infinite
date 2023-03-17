@@ -4,3 +4,4 @@ node_project/messions/*
 !node_project/messions/example*
 node_project/test
 node_project/node_modules
+private

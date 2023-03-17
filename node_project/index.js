@@ -9,6 +9,7 @@ const { parse } = require('jsonc-parser');
 const templates = {
   indexedContent: require('./templates/indexedContent.js'),
   multiSectionIndexedContent: require('./templates/multiSectionIndexedContent.js'),
+  longTranslation: require('./templates/longTranslation.js'),
 };
 
 // Variables to track the state of the session
@@ -44,7 +45,8 @@ async function runProgram() {
         socket,
         message: message,
         escapedMessage,
-        saveResults:helpers.saveResults,
+        saveResults: helpers.saveResults,
+        generateResultFileName: helpers.generateResultFileName,
         options: options,
       };
   

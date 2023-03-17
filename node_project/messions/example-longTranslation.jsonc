@@ -1,0 +1,16 @@
+{
+  "fileName": "json-translation",//OPTIONAL
+  "outputFileType": "json",//OPTIONAL
+  "templateName": "longTranslation",
+  "request": "Please translate the below content to Japanese following these rules",
+  "addTionalTextRules": [//OPTIONAL
+    "START DIRECTLY WITH THE TRANSLATION",
+    "TRANSLATE ONLY THE CONTENT OF THIS REQUEST",
+    "Translate the values and keep the keys of the text you will get",
+    "DO NOT USE ANY FORMATTING KEEP THE TEXT STRUCTURE AS IT IS",
+  ],
+  "textToTranslate": "",// Provide the text OR the path to a file in fileToTranslate
+  "fileToTranslate": "/path/to/a/text/file",// Provide the path to a file OR the text in textToTranslate
+  "chunkSize": 10,//OPTIONAL Number of lines to translate at once
+  "enableJsonWorkaround": true,//OPTIONAL This will replace brackets and braces with a placeholder during translation
+}

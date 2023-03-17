@@ -4,11 +4,22 @@ const { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } = require('node-html-markdow
 
 const slugify = (str) => str.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
 
-function saveResults(title, text, type = 'txt') {
-  const fileName = `${slugify(title).substring(0, 20)}-${new Date().toISOString()}.`+type;
+function generateResultFileName(title, type = 'txt') {
+  return `${slugify(title).substring(0, 20)}-${new Date().toISOString()}.`+type;
+}
+
+function saveResults(title, text, type = 'txt', options = {forceFileName: null, appendToFile: false}) {
+  var fileName = options.forceFileName || generateResultFileName(title, type);
   const resultsPath = path.join(__dirname, 'results');
-  //TODO Save the results to a file in the ./results folder with the created name
-  fs.writeFileSync(path.join(resultsPath, fileName), text, (err) => {
+  const filePath = path.join(resultsPath, fileName);
+  
+  var _text = text;
+  if(options.appendToFile && fs.existsSync(filePath)){ // Append to existing file if it exists
+    const existingContent = fs.readFileSync(filePath, 'utf8');
+    _text = existingContent + _text;
+  }
+
+  fs.writeFileSync(filePath, _text, (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
@@ -36,6 +47,7 @@ function convertHtmlToMD(_html) {
 }
 
 module.exports = {
+  generateResultFileName,
   slugify,
   saveResults,
   convertHtmlToMD,
