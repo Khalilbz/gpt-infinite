@@ -4,6 +4,7 @@ This is a Node.js based automation tool that helps to automate tasks in chat GPT
 > ChatGPT API implementation will come soon
 
 > Creating a 39 pages Japanese book using GPT Infinite
+>  
 > ![alt text](./video.gif)
 
 ## Available Missions
