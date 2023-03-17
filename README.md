@@ -10,10 +10,11 @@ This is a Node.js based automation tool that helps to automate tasks in chat GPT
 ## Available Missions
 
 ### 1. Indexed Content Mission:
-* This mission asks for a specific set of requests and returns detailed documentation or a to-do list. It can also be used for translating large content by splitting it into multiple requests or similar things.
+* This mission asks for a specific set of requests and returns detailed documentation or a to-do list. It can also be used for creating large content by splitting it into multiple requests, or similar things.
     
 ### 2. Multi-section Indexed Content Mission:
-* This mission asks for a specific set of requests, and for each request, it will ask for a custom set of sections. This can be used to go into detail for a large number of stories, books or any other content by asking for a set number of sections per item.
+* Short Description: Simliar to (Indexed Content) but multiple questions for every section (Ultr Large content)
+* Detailed Description: This mission asks for a specific set of requests, and for each request, it will ask for a custom set of sections. This can be used to go into detail for a large number of stories, books or any other content by asking for a set number of sections per item.
 * For instance, if you want to create a book of 100 stories, each story with 50 sections, this mission can be used to generate it with just one automation request.
     
 ### 3. Long Translation:
