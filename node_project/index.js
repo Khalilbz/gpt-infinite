@@ -10,6 +10,7 @@ const templates = {
   indexedContent: require('./templates/indexedContent.js'),
   multiSectionIndexedContent: require('./templates/multiSectionIndexedContent.js'),
   longTranslation: require('./templates/longTranslation.js'),
+  infiniteListen: require('./templates/infiniteListen.js'),
 };
 
 // Variables to track the state of the session
@@ -31,8 +32,18 @@ async function runProgram() {
   server.on('connection', (socket) => {
     console.log('WebSocket connection opened');
   
+    const global_ctx = {
+      socket,
+      saveResults: helpers.saveResults,
+      generateResultFileName: helpers.generateResultFileName,
+      options: options,
+    };
+  
     // Send the initial message to request section titles
-    if(!ignoreFirstMessage) socket.send(selectedTemplate.sendFirstMessage({socket, options}));
+    const firstMessage = selectedTemplate.sendFirstMessage(global_ctx);
+    if(!ignoreFirstMessage && firstMessage) {
+      socket.send(firstMessage);
+    }
   
     const socketOnMessage = (_message) => {
       // console.log(`Received message from ChatGPT: ${_message}`);
@@ -43,12 +54,9 @@ async function runProgram() {
       const escapedMessage = message.replace(/\\([\[\]{}()*+?.\_,\\^$|#\s])/g, '$1');
   
       const ctx = {
-        socket,
         message: message,
         escapedMessage,
-        saveResults: helpers.saveResults,
-        generateResultFileName: helpers.generateResultFileName,
-        options: options,
+        ...global_ctx,
       };
   
   

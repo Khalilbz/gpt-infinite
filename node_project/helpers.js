@@ -37,13 +37,6 @@ function convertHtmlToMD(_html) {
   // Removing the additional divs, so "node-html-markdown" can detect the code blocks
   html = html.replace(/<\/code><\/div><\/div><\/pre>/g, '</code></pre>');
 
-
-  // All the problem that happened last time was because the "node-html-markdown" package
-  //   tranforms the code blocks that starts with <pre><code>..., but ChatGPT writes the code blocks
-  //   in the following format: <pre><div><div><code>...
-  //   If a problem happens again, try to find the new modified format and update the code above
-  //TODO: Find a way to automatically detect the code block format
-
   var md = NodeHtmlMarkdown.translate(html, {
     codeBlockStyle: "fenced",
     code: 'block'

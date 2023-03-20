@@ -3,6 +3,7 @@ const storyContent = "auto-generated-content";
 var sectionsTitles = [];
 var sectionsContents = [];
 var currentSectionNum = 0;
+var fileName = null;
 
 // Send the initial message to request section titles
 function sendFirstMessage(ctx) {
@@ -73,6 +74,20 @@ function handleFirstIncomingMessage(ctx) {
 
   console.log("handleFirstIncomingMessage+++++++++++++++++++++++++++++++");
 
+  if(!fileName) {
+    fileName = ctx.generateResultFileName((ctx.options.fileName || storyContent), "md");
+    // Initial file content
+    ctx.saveResults(
+      null,
+      "Subject:"+storyContent+"\n\n\n\n",
+      "md",
+      {
+        forceFileName: fileName,
+        appendToFile: true,
+      }
+    );
+  }
+  
   if(ctx.options && ctx.options.sectionsTitles && ctx.options.sectionsTitles.length > 0) {
     console.log("Sections titles are already provided in the options");
     sectionsTitles = ctx.options.sectionsTitles;
@@ -118,19 +133,24 @@ function handleIncomingMessage(ctx) {
     // sectionContent: ctx.escapedMessage,
   });
 
-  if (currentSectionNum === sectionsTitles.length) {
-    // All sections have been received
-    // console.log("All sections have been received:");
-    // sectionsContents.forEach((section) => {
-    //   console.log(`Section ${section.sectionNum}: ${section.sectionTitle}\n${section.sectionContent}`);
-    // });
+  // Auto save
+  ctx.saveResults(
+    null,
+    ctx.message,
+    "md",
+    {
+      forceFileName: fileName,
+      appendToFile: true,
+    }
+  );
 
+  if (currentSectionNum === sectionsTitles.length) {
     console.log("\n\n\n\n\nAll sections have been received");
-    var sectionsContentString = "";
-    sectionsContents.forEach((section) => {
-      sectionsContentString += `${section.sectionContent}\n\n`;
-    });
-    ctx.saveResults((ctx.options.fileName || storyContent), "Subject:"+storyContent+"\n\n\n\n"+sectionsContentString, "md");
+    // var sectionsContentString = "";
+    // sectionsContents.forEach((section) => {
+    //   sectionsContentString += `${section.sectionContent}\n\n`;
+    // });
+    // ctx.saveResults((ctx.options.fileName || storyContent), "Subject:"+storyContent+"\n\n\n\n"+sectionsContentString, "md");
     
   } else {
     // Send a message to the Chrome extension to request the next section

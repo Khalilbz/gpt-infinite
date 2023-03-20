@@ -20,6 +20,9 @@ This is a Node.js based automation tool that helps to automate tasks in chat GPT
 ### 3. Long Translation:
 * This mission to translate a file by sending it section by section, for now only text based files are supported (TXT, HTML, XML, JSON, ...).
     
+### 4. Infinite Listen:
+* With this mission you can interact freely with ChatGPT and you will find all of the responses exported in the results folder.
+    
 
 
 To use this tool, you need to install the Chrome extension and open a ChatGPT chrome tab.
@@ -36,6 +39,7 @@ To use this tool, you need to install the Chrome extension and open a ChatGPT ch
 ## Usage
 
 1.  Copy a mission file in the `missions` folder
+> You can copy the file `example-indexedContent.jsonc` as a first try
 2.  Run the Node.js program `npm start MISSION_NAME`.
 3.  Open a Chat GPT tab in Google Chrome, and click the button in the left Menu `Start ChatGPT API`
 4.  The magic will start
