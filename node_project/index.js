@@ -39,7 +39,8 @@ async function runProgram() {
       // console.log(`Received message from ChatGPT .toString(): ${_message.toString()}`);
       const message = helpers.convertHtmlToMD(_message.toString());
       // console.log(`Received message from ChatGPT PARSED: ${message}`);
-      const escapedMessage = message.replace(/\\([\[\]{}()*+?.,\\^$|#\s])/g, '$1');
+      // const escapedMessage = message.replace(/\\([\[\]{}()*+?.,\\^$|#\s])/g, '$1');
+      const escapedMessage = message.replace(/\\([\[\]{}()*+?.\_,\\^$|#\s])/g, '$1');
   
       const ctx = {
         socket,
@@ -112,6 +113,9 @@ async function getUserInput() {
     options = jsonData;
     
   }else{
+    helpers.listMissions();
+    process.exit(0);
+    return;
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   
     const readData = (question) => {
