@@ -293,6 +293,19 @@ function updateButton(button, buttonClickState){
     button.innerHTML = button.innerHTML.replace("#b3b300", "#b3b300");
   }
 }
+const ButtonClickTrigger = () => {
+  // replace "Start ChatGPT API" with "Running ChatGPT API..."
+  buttonClickState = "running";
+  updateButton(button, buttonClickState);
+  run((socket) => {
+    // replace "Running ChatGPT API..." with "Start ChatGPT API"
+    runnigFirstTime = true;
+    buttonClickState = "stopped";
+    updateButton(button, buttonClickState);
+    document.getElementById('kha-gpt-enable-button').remove();
+    injectButton();
+  }); // Call the run() function
+};
 
 async function injectButton(){
   await sleep(1000);
@@ -307,19 +320,7 @@ async function injectButton(){
 
   updateButton(button, buttonClickState);
   // Add a click event listener to the button
-  button.addEventListener("click", () => {
-    // replace "Start ChatGPT API" with "Running ChatGPT API..."
-    buttonClickState = "running";
-    updateButton(button, buttonClickState);
-    run((socket) => {
-      // replace "Running ChatGPT API..." with "Start ChatGPT API"
-      runnigFirstTime = true;
-      buttonClickState = "stopped";
-      updateButton(button, buttonClickState);
-      document.getElementById('kha-gpt-enable-button').remove();
-      injectButton();
-    }); // Call the run() function
-  });
+  button.addEventListener("click", ButtonClickTrigger);
   
   const fourthElement = nav.children[3]; // Get the fourth child element (index 3)
   nav.insertBefore(button, fourthElement); // Insert the button before the fourth element
