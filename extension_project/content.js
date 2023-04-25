@@ -183,8 +183,15 @@ var triggers = {
   },
   // When receiving a message from localhost
   onMessageRequest: function(message) {
-      sendMessageToChat(message);
-      console.log("New Request message: " + message);
+    // if message is equal to "CHATGPT-API-AUTOSTART", then redirect to URL+"#CHATGPT-API-AUTOSTART"
+    if(message == "CHATGPT-API-AUTOSTART"){
+      window.location = window.location.href + "#CHATGPT-API-AUTOSTART";
+      return;
+    }
+
+    // If a normal message, send it to the chat
+    sendMessageToChat(message);
+    console.log("New Request message: " + message);
   },
 };
 
@@ -293,6 +300,9 @@ function updateButton(button, buttonClickState){
     button.innerHTML = button.innerHTML.replace("#b3b300", "#b3b300");
   }
 }
+
+var button;
+
 const ButtonClickTrigger = () => {
   // replace "Start ChatGPT API" with "Running ChatGPT API..."
   buttonClickState = "running";
@@ -314,7 +324,7 @@ async function injectButton(){
   const nav = document.querySelector("nav");
   
   // Create the button element
-  const button = document.createElement("a");
+  button = document.createElement("a");
   button.id = "kha-gpt-enable-button";
   button.classList.add("flex", "py-3", "px-3", "items-center", "gap-3", "rounded-md", "hover:bg-gray-500/10", "transition-colors", "duration-200", "text-white", "cursor-pointer", "text-sm");
 
@@ -332,5 +342,12 @@ for (const navElement of navElements) {
     injectButton();
   });
 }
-injectButton();
+
+
 console.log("========== CHATGPT API ==========");
+injectButton();
+
+// Check if url tag contains "CHATGPT-API-AUTOSTART", if so run ButtonClickTrigger() after 1.5 second
+if(window.location.href.includes("CHATGPT-API-AUTOSTART")){
+  setTimeout(ButtonClickTrigger, 1500);
+}
