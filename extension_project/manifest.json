@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ChatGPT API",
-  "version": "1.0",
+  "version": "1.0.2",
   "description": "This extension converts chatGPT response text into speech and plays it automatically.",
   "permissions": [
     "activeTab",
@@ -9,7 +9,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://chat.openai.com/chat/*"],
+      "matches": ["https://chat.openai.com/chat/*", "https://chat.openai.com/*"],
       "js": ["content.js"]
     }
   ],

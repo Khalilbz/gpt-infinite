@@ -295,9 +295,7 @@ function updateButton(button, buttonClickState){
 }
 
 async function injectButton(){
-  console.log("===== Injecting button =====");
-  console.log("Injecting button ...");
-  await sleep(5000);
+  await sleep(1000);
   if(document.getElementById('kha-gpt-enable-button')) return;
   // Find the nav element to append the button to
   const nav = document.querySelector("nav");
@@ -323,11 +321,8 @@ async function injectButton(){
     }); // Call the run() function
   });
   
-  // const fourthElement = nav.children[0]; // Get the fourth child element (index 3)
-  // nav.insertBefore(button, fourthElement); // Insert the button before the fourth element
-  // append before the nav
-  nav.parentNode.insertBefore(button, nav);
-  console.log("===== Injected button =====");
+  const fourthElement = nav.children[3]; // Get the fourth child element (index 3)
+  nav.insertBefore(button, fourthElement); // Insert the button before the fourth element
 }
 const navElements = document.getElementsByTagName('nav');
 
@@ -337,4 +332,4 @@ for (const navElement of navElements) {
   });
 }
 injectButton();
-console.log("===== Working =====");
+console.log("========== CHATGPT API ==========");
